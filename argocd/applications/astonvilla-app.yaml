@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metada:
-  name: astonvilla-app
+  name: astonvilla-application
   namespace: argocd
 spec:
   project: astonvilla
