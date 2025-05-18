@@ -15,14 +15,6 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
-      allowEmpty: true
     syncOptions:
       - CreateNamespace=true
-      - PruneLast=true
-      - ApplyOuntSyncOnly=true
-    retry:
-      limit: 5
-      bachkoff: 
-        duration: 10s
-        maxDuration: 3m
+
