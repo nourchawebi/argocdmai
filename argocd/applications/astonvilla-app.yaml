@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metada:
+  name: astonvilla-app
+  namespace: argocd
+spec:
+  project: astonvilla
+  destination:
+    namespace: internship
+    server: https://kubernetes.default.svc
+  source:
+    path: astonvilla-app
+    repoURL: "https://github.com/nourchawebi/argocdmai.git"
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
+      - ApplyOuntSyncOnly=true
+    retry:
+      limit: 5
+      bachkoff: 
+        duration: 10s
+        maxDuration: 3m
